@@ -1,6 +1,6 @@
 <div>
   <div class="row">
-    <div class="span12" ng-controller="DocumentsCtrl">
+    <div class="span12">
        <div ng-view></div>
     </div>
   </div>
@@ -14,25 +14,19 @@
     </ul>
   </script>
 
-  <script type="text/ng-template" id="document.html">
-    <h2>{{document.title}}</h2>
-    <div>{{document.body}}</div>
-    <a href="/documents/{{document.id}}/edit" class="btn btn-small">Edit</a>
-    <a href="/documents" class="btn btn-small">All Documents</a>
-  </script>
-
   <script id="documentFormElements.html" type="text/ng-template">
+    <label>Title</label>
+    <input type="text" placeholder="Document Title" ng-model="document.title">
+    <label>Body</label>
+    <textarea placeholder="Document Body" ng-model="document.body">{{document.body}}</textarea>
+    <br>
   </script>
 
   <script id="documentNew.html" type="text/ng-template">
     <form ng-submit="addDocument()">
       <fieldset>
         <legend>Add New Document</legend>
-        <label>Title</label>
-        <input type="text" placeholder="Document Title" ng-model="document.title">
-        <label>Body</label>
-        <textarea placeholder="Document Body" ng-model="document.body">{{document.body}}</textarea>
-        <br>
+        <div ng-include="'documentFormElements.html'"></div>
         <button type="submit" class="btn btn-small">Add</button>
         <a href="/documents" class="btn btn-small">Cancel</a>
       </fieldset>
@@ -43,11 +37,7 @@
     <form ng-submit="saveDocument()">
       <fieldset>
         <legend>Editing {{currentTitle}}</legend>
-        <label>Title</label>
-        <input type="text" placeholder="Document Title" ng-model="document.title">
-        <label>Body</label>
-        <textarea placeholder="Document Body" ng-model="document.body">{{document.body}}</textarea>
-        <br>
+        <div ng-include="'documentFormElements.html'"></div>
         <button type="submit" class="btn btn-small">Save</button>
         <a href="/documents/{{document.id}}" class="btn btn-small">Cancel</a>
         <a href ng-click="deleteDocument()" class="btn btn-small btn-danger">Delete</a>

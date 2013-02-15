@@ -7,7 +7,8 @@ app.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationPro
     .when('/', templateUrl: "documents.html", controller: "DocumentsCtrl")
     .when('/documents', redirectTo: "/")
     .when('/documents/new', templateUrl: "documentNew.html", controller: "DocumentNewCtrl")
-    .when('/documents/:id', templateUrl: "document.html", controller: "DocumentCtrl")
+    .when('/documents/:id', templateUrl: "/templates/document/show", controller: "DocumentCtrl")
+    #.when('/documents/:id', templateUrl: "document.html", controller: "DocumentCtrl")
     .when('/documents/:id/edit', templateUrl: "documentEdit.html", controller: "DocumentEditCtrl")
     .otherwise(redirectTo: "/")
 ]
@@ -34,9 +35,7 @@ app.controller 'DocumentCtrl', ["$scope", "$routeParams", "Document", ($scope, $
 
 app.controller 'DocumentNewCtrl', ["$scope", "$location", "Document", ($scope, $location, Document) ->
   $scope.addDocument = ->
-    console.log $scope.document
     document = new Document($scope.document)
-    console.log document
 
     document.create().then ->
       $location.path "/documents/#{document.id}"
