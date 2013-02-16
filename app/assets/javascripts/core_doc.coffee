@@ -1,20 +1,11 @@
-app = angular.module("CoreDoc", ['rails'])
-
-app.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
-  $locationProvider.html5Mode(true).hashPrefix('!')
-
-  $routeProvider
-    .when('/', templateUrl: "documents.html", controller: "DocumentsCtrl")
-    .when('/documents', redirectTo: "/")
-    .when('/documents/new', templateUrl: "documentNew.html", controller: "DocumentNewCtrl")
-    .when('/documents/:id', templateUrl: "/templates/document/show", controller: "DocumentCtrl")
-    #.when('/documents/:id', templateUrl: "document.html", controller: "DocumentCtrl")
-    .when('/documents/:id/edit', templateUrl: "documentEdit.html", controller: "DocumentEditCtrl")
-    .otherwise(redirectTo: "/")
-]
+app = @CoreDoc
 
 app.factory 'Document', ['railsResourceFactory', (railsResourceFactory) ->
   railsResourceFactory url: '/documents', name: 'document'
+]
+
+app.controller 'CoreDocCtrl', ["$scope", "TemplatePaths", ($scope, TemplatePaths) ->
+  $scope.templatePaths = TemplatePaths
 ]
 
 app.controller 'DocumentsCtrl', ["$scope", "Document", ($scope, Document) ->
@@ -34,9 +25,8 @@ app.controller 'DocumentCtrl', ["$scope", "$routeParams", "Document", ($scope, $
 ]
 
 app.controller 'DocumentNewCtrl', ["$scope", "$location", "Document", ($scope, $location, Document) ->
+  document = $scope.document = new Document()
   $scope.addDocument = ->
-    document = new Document($scope.document)
-
     document.create().then ->
       $location.path "/documents/#{document.id}"
 ]

@@ -1,0 +1,6 @@
+<a href="/documents/new" class="btn btn-small">Add New Document</a>
+<ul>
+    <li ng-repeat="document in documents">
+        <a href="/documents/{{document.id}}">{{document.title}}</a>
+    </li>
+</ul>

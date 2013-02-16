@@ -9,13 +9,15 @@
 <body>
 
 <div class="container" ng-app="CoreDoc">
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <a class="brand" href="/">CoreDoc</a>
+  <div ng-controller="CoreDocCtrl">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <a class="brand" href="/">CoreDoc</a>
 
+      </div>
     </div>
+    <%= yield %>
   </div>
-  <%= yield %>
 </div>
 
 </body>

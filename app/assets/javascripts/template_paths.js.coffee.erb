@@ -1,0 +1,11 @@
+@CoreDoc.constant 'TemplatePaths',
+<%
+    templates_path = File.expand_path('../../angular/templates', __FILE__)
+    Dir.glob("#{templates_path}/**/*.html").each do |file|
+        template_path = file.gsub(/#{templates_path}\//, "")
+        logger.debug template_path
+%>
+    "<%= template_path %>": "<%= asset_path("templates/#{template_path}") %>"
+<%
+    end
+%>

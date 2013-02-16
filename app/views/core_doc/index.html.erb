@@ -5,43 +5,6 @@
     </div>
   </div>
 
-  <script type="text/ng-template" id="documents.html">
-    <a href="/documents/new" class="btn btn-small">Add New Document</a>
-    <ul>
-      <li ng-repeat="document in documents">
-        <a href="/documents/{{document.id}}">{{document.title}}</a>
-      </li>
-    </ul>
-  </script>
-
   <script id="documentFormElements.html" type="text/ng-template">
-    <label>Title</label>
-    <input type="text" placeholder="Document Title" ng-model="document.title">
-    <label>Body</label>
-    <textarea placeholder="Document Body" ng-model="document.body">{{document.body}}</textarea>
-    <br>
-  </script>
-
-  <script id="documentNew.html" type="text/ng-template">
-    <form ng-submit="addDocument()">
-      <fieldset>
-        <legend>Add New Document</legend>
-        <div ng-include="'documentFormElements.html'"></div>
-        <button type="submit" class="btn btn-small">Add</button>
-        <a href="/documents" class="btn btn-small">Cancel</a>
-      </fieldset>
-    </form>
-  </script>
-
-  <script id="documentEdit.html" type="text/ng-template">
-    <form ng-submit="saveDocument()">
-      <fieldset>
-        <legend>Editing {{currentTitle}}</legend>
-        <div ng-include="'documentFormElements.html'"></div>
-        <button type="submit" class="btn btn-small">Save</button>
-        <a href="/documents/{{document.id}}" class="btn btn-small">Cancel</a>
-        <a href ng-click="deleteDocument()" class="btn btn-small btn-danger">Delete</a>
-      </fieldset>
-    </form>
   </script>
 </div>
