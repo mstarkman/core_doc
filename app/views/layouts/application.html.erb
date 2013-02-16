@@ -13,7 +13,15 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <a class="brand" href="/">CoreDoc</a>
-
+        <div class="alert alert-info alert-message span2" ng-show="isLoading">
+          Loading...
+        </div>
+        <div class="alert alert-info alert-message span2" ng-show="isShowingFlash">
+          {{flashMessage}}
+        </div>
+        <div class="alert alert-info alert-message span2" ng-show="isSaving">
+          {{saveMessage}}
+        </div>
       </div>
     </div>
     <%= yield %>
