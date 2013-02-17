@@ -11,16 +11,17 @@
     $rootScope.isShowingFlash = false
     startedLoading = false
     startedSaving = false
+    flashSet = false
     $rootScope.flashMessage = null
     $rootScope.saveMessage = null
     $rootScope.isSaving = false
 
     showFlashMessage = ->
-      if $rootScope.flashMessage?
+      if flashSet
         $rootScope.isShowingFlash = true
         $timeout ->
+          flashSet = false
           $rootScope.isShowingFlash = false
-          $rootScope.flashMessage = null
         , 2000
 
     $rootScope.$on "$routeChangeStart", ->
@@ -38,6 +39,7 @@
       showFlashMessage()
 
     $rootScope.setFlashMessage = (message) ->
+      flashSet = true
       $rootScope.flashMessage = message
 
     $rootScope.startSaving = (message = "Saving...") ->
