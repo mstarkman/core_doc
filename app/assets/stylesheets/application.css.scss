@@ -3,4 +3,21 @@
 
 body {
   padding-top: 60px;
+
+  .document-editor-container {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: rgba(0, 0, 0, 0.75) 0 2px 5px;
+    margin-bottom: 15px;
+  }
+
+  .document-displayer-container {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-shadow: rgba(0, 0, 0, 0.75) 0 2px 5px;
+    margin-bottom: 15px;
+  }
 }
+
