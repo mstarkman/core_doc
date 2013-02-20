@@ -40,6 +40,7 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'strong_parameters'
+gem "active_model_serializers", :github => "rails-api/active_model_serializers"
 
 group :development do
   gem 'quiet_assets'
