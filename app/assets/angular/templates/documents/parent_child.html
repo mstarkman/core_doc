@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="span6" ng-show="document.parent">
+        <h4>Parent Document</h4>
+        <ul>
+            <li>
+                <a href="/documents/{{document.parent.id}}">{{document.parent.title}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="span6" ng-show="document.children.length > 0">
+        <h4>Children Documents</h4>
+        <ul>
+            <li ng-repeat="child in document.children | orderBy:'title'">
+                <a href="/documents/{{child.id}}">{{child.title}}</a>
+            </li>
+        </ul>
+    </div>
+</div>
