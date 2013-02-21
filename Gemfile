@@ -41,6 +41,7 @@ gem 'jquery-rails'
 
 gem 'strong_parameters'
 gem "active_model_serializers", :github => "rails-api/active_model_serializers"
+gem 'friendly_id', "~> 4.0.9"
 
 group :development do
   gem 'quiet_assets'

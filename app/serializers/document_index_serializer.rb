@@ -1,3 +1,3 @@
 class DocumentIndexSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body
+  attributes :id, :title, :body, :slug
 end

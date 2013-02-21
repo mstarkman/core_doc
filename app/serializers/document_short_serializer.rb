@@ -1,3 +1,3 @@
 class DocumentShortSerializer < ActiveModel::Serializer
-  attributes :id, :title
+  attributes :id, :title, :slug
 end
