@@ -20,11 +20,11 @@
 
       editor.on "save", ->
         scope.body = editor.exportFile()
+        console.log "saving"
         scope.$apply()
 
       scope.$on "$destroy", ->
         editor.removeListener("save")
-        editor.unload()
         editor = undefined
   }
 ]
