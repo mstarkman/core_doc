@@ -20,7 +20,6 @@
 
       editor.on "save", ->
         scope.body = editor.exportFile()
-        console.log "saving"
         scope.$apply()
 
       scope.$on "$destroy", ->

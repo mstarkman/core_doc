@@ -26,6 +26,11 @@ resolves = @CoreDoc.resolves ||= {}
         controller: "DocumentNewCtrl"
       )
       .when(
+        '/documents/:parent_id/new',
+        templateUrl: TemplatePaths["documents/new.html"],
+        controller: "DocumentNewCtrl"
+      )
+      .when(
         '/documents/:id',
         templateUrl: TemplatePaths["documents/show.html"],
         controller: "DocumentCtrl",

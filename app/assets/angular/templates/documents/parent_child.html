@@ -7,9 +7,10 @@
             </li>
         </ul>
     </div>
-    <div class="span6" ng-show="document.children.length > 0">
+    <div class="span6">
         <h4>Children Documents</h4>
-        <ul>
+        <a href="/documents/{{document.id}}/new" class="btn btn-small">Add Child Document</a>
+        <ul ng-show="document.children.length > 0">
             <li ng-repeat="child in document.children | orderBy:'title'">
                 <a href="/documents/{{child.id}}">{{child.title}}</a>
             </li>
