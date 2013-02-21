@@ -1,4 +1,4 @@
-#= require template_paths
+#= require services/template_paths
 
 resolves = @CoreDoc.resolves ||= {}
 

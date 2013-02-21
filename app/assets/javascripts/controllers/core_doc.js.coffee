@@ -1,20 +1,13 @@
 #= require_tree .
 
-routes =
-  documents:              -> "/documents"
-  document:
-    show:     (document)  -> if document then "/documents/#{document.id}" else ""
-    new:                  -> "/documents/new"
-    newChild: (document)  -> "/documents/#{document.id}/new"
-    edit:     (document)  -> "/documents/#{document.id}/edit"
-
 @CoreDoc.controller 'CoreDocCtrl', [
   "$rootScope",
   "$timeout",
   "TemplatePaths",
-  ($rootScope, $timeout, TemplatePaths) ->
+  "RouteHelpers"
+  ($rootScope, $timeout, TemplatePaths, RouteHelpers) ->
     $rootScope.templatePaths = TemplatePaths
-    $rootScope.routes = routes
+    $rootScope.routes = RouteHelpers
 
     $rootScope.isLoading = false
     $rootScope.isShowingFlash = false
