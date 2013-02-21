@@ -2,8 +2,8 @@ class DocumentsController < ApplicationController
   respond_to :json
 
   def index
-    documents = Document.all
-    respond_with documents
+    documents = Document.without_parent
+    render json: documents, each_serializer: DocumentIndexSerializer
   end
 
   def show
