@@ -4,5 +4,5 @@
     $scope.startSaving()
     document.create().then ->
       $scope.endSaving "Document Added!"
-      $location.path "/documents/#{document.id}"
+      $location.path $scope.routes.document.show(document)
 ]

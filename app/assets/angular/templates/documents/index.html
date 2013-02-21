@@ -1,6 +1,6 @@
-<a href="/documents/new" class="btn btn-small">Add New Document</a>
+<a cd-route-href="document.new()" class="btn btn-small">Add New Document</a>
 <ul>
     <li ng-repeat="document in documents | orderBy:'title'">
-        <a href="/documents/{{document.id}}">{{document.title}}</a>
+        <a cd-route-href="document.show(document)">{{document.title}}</a>
     </li>
 </ul>

@@ -12,13 +12,13 @@
       $scope.startSaving()
       currentDocument.update().then (document) ->
         $scope.endSaving "Document Saved!"
-        $location.path "/documents/#{document.id}"
+        $location.path $scope.routes.document.show(document)
 
     $scope.deleteDocument = ->
       if confirm("Are you sure you want to delete \"#{currentDocument.title}\"?")
         currentDocument.delete().then ->
           $scope.setFlashMessage "Document Deleted!"
-          $location.path '/documents'
+          $location.path $scope.routes.documents()
 ]
 
 @CoreDoc.resolves["document.edit"] =

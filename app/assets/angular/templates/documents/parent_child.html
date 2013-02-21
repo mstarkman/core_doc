@@ -3,16 +3,16 @@
         <h4>Parent Document</h4>
         <ul>
             <li>
-                <a href="/documents/{{document.parent.id}}">{{document.parent.title}}</a>
+                <a cd-route-href="document.show(document.parent)">{{document.parent.title}}</a>
             </li>
         </ul>
     </div>
     <div class="span6">
-        <h4>Children Documents</h4>
-        <a href="/documents/{{document.id}}/new" class="btn btn-small">Add Child Document</a>
+        <h4>Child Documents</h4>
+        <a cd-route-href="document.newChild(document)" class="btn btn-small">Add Child Document</a>
         <ul ng-show="document.children.length > 0">
             <li ng-repeat="child in document.children | orderBy:'title'">
-                <a href="/documents/{{child.id}}">{{child.title}}</a>
+                <a cd-route-href="document.show(child)">{{child.title}}</a>
             </li>
         </ul>
     </div>

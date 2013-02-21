@@ -3,7 +3,7 @@
         <legend>Editing {{currentTitle}}</legend>
         <div ng-include="templatePaths['documents/form.html']"></div>
         <button type="submit" class="btn btn-small">Save</button>
-        <a href="/documents/{{document.id}}" class="btn btn-small">Cancel</a>
+        <a cd-route-href="document.show(document)" class="btn btn-small">Cancel</a>
         <a href ng-click="deleteDocument()" class="btn btn-small btn-danger">Delete</a>
     </fieldset>
 </form>

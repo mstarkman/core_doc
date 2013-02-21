@@ -1,5 +1,5 @@
 <h2>{{document.title}}</h2>
 <cd-document-displayer body="document.body"></cd-document-displayer>
-<a href="/documents/{{document.id}}/edit" class="btn btn-small">Edit</a>
-<a href="/documents" class="btn btn-small">All Documents</a>
+<a cd-route-href="document.edit(document)" class="btn btn-small">Edit</a>
+<a cd-route-href="documents()" class="btn btn-small">All Documents</a>
 <div ng-include="templatePaths['documents/parent_child.html']"></div>
