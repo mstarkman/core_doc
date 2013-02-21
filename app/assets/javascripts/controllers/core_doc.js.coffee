@@ -3,11 +3,12 @@
 @CoreDoc.controller 'CoreDocCtrl', [
   "$rootScope",
   "$timeout",
+  "$location",
   "TemplatePaths",
   "RouteHelpers"
-  ($rootScope, $timeout, TemplatePaths, RouteHelpers) ->
+  ($rootScope, $timeout, $location, TemplatePaths, RouteHelpers) ->
     $rootScope.templatePaths = TemplatePaths
-    $rootScope.routes = RouteHelpers
+    routes = $rootScope.routes = RouteHelpers
 
     $rootScope.isLoading = false
     $rootScope.isShowingFlash = false
@@ -38,6 +39,7 @@
 
     $rootScope.$on "$routeChangeError", ->
       $rootScope.isLoading = startedLoading = false
+      $location.path routes.documents()
       showFlashMessage()
 
     $rootScope.setFlashMessage = (message) ->

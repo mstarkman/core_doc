@@ -3,12 +3,25 @@
 ]
 
 @CoreDoc.resolves["document.show"] =
-  data: ["$q", "$route", "Document", ($q, $route, Document) ->
-    defer = $q.defer()
+  data: [
+    "$rootScope",
+    "$q",
+    "$route",
+    "Document",
+    ($rootScope, $q, $route, Document) ->
+      defer = $q.defer()
 
-    Document.get($route.current.pathParams.id).then (document) ->
-      Document.loadedDocument = document
-      defer.resolve()
+      docOnSuccess = (document) ->
+        Document.loadedDocument = document
+        defer.resolve()
 
-    defer.promise
+      docOnFailure = (response) ->
+        # response.status = 404
+        $rootScope.setFlashMessage "Error loading document!"
+        defer.reject()
+
+      doc = Document.get($route.current.pathParams.id)
+      doc.then docOnSuccess, docOnFailure
+
+      defer.promise
   ]

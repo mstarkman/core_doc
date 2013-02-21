@@ -1,5 +1,6 @@
 class DocumentsController < ApplicationController
   respond_to :json
+  before_filter :load_document, only: [:show, :update, :destroy]
 
   def index
     documents = Document.without_parent
@@ -7,8 +8,7 @@ class DocumentsController < ApplicationController
   end
 
   def show
-    document = Document.find(params[:id])
-    respond_with document
+    respond_with @document
   end
 
   def create
@@ -19,20 +19,22 @@ class DocumentsController < ApplicationController
   end
 
   def update
-    document = Document.find(params[:id])
-    if document.update_attributes document_params
+    if @document.update_attributes document_params
       respond_with document
     end
   end
 
   def destroy
-    document = Document.find(params[:id])
-    document.destroy
+    @document.destroy
     render json: nil, status: :no_content
   end
 
   private
   def document_params
     params.require(:document).permit(:title, :body, :parent_document_id)
+  end
+
+  def load_document
+    @document = Document.find(params[:id])
   end
 end

@@ -22,12 +22,20 @@
 ]
 
 @CoreDoc.resolves["document.edit"] =
-  data: ["$q", "$route", "Document", ($q, $route, Document) ->
+  data: ["$rootScope", "$q", "$route", "Document", ($rootScope, $q, $route, Document) ->
     defer = $q.defer()
 
-    Document.get($route.current.pathParams.id).then (document) ->
+    docOnSuccess = (document) ->
       Document.loadedDocument = document
       defer.resolve()
+
+    docOnFailure = (response) ->
+      # response.status = 404
+      $rootScope.setFlashMessage "Error editing document!"
+      defer.reject()
+
+    doc = Document.get($route.current.pathParams.id)
+    doc.then docOnSuccess, docOnFailure
 
     defer.promise
   ]
