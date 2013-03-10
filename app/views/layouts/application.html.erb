@@ -10,20 +10,6 @@
 
 <div class="container" ng-app="CoreDoc">
   <div ng-controller="CoreDocCtrl">
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <a class="brand" href="/">CoreDoc</a>
-        <div class="alert alert-info alert-message span2" ng-show="isLoading">
-          Loading...
-        </div>
-        <div cd-show-with-fade="isShowingFlash" class="alert alert-info alert-message span2">
-          {{flashMessage}}
-        </div>
-        <div ng-show="isSaving" class="alert alert-info alert-message span2">
-          {{saveMessage}}
-        </div>
-      </div>
-    </div>
     <%= yield %>
   </div>
 </div>

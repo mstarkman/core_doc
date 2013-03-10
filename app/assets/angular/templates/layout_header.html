@@ -1,0 +1,25 @@
+<div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+        <div class="nav-collapse collapse">
+            <ul class="nav">
+                <li>
+                    <a href="/">CoreDoc</a>
+                </li>
+            </ul>
+            <ul class="nav pull-right">
+                <li>
+                    <a cd-route-href="document.new()"><i class="icon-plus-sign-alt"></i> Add a Document</a>
+                </li>
+            </ul>
+            <div class="alert alert-info alert-message span2" ng-show="isLoading">
+                Loading...
+            </div>
+            <div cd-show-with-fade="isShowingFlash" class="alert alert-info alert-message span2">
+                {{flashMessage}}
+            </div>
+            <div ng-show="isSaving" class="alert alert-info alert-message span2">
+                {{saveMessage}}
+            </div>
+        </div>
+    </div>
+</div>

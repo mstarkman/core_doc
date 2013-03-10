@@ -1,6 +1,7 @@
-<a cd-route-href="document.new()" class="btn btn-small">Add New Document</a>
-<ul>
-    <li ng-repeat="document in documents | orderBy:'title'">
-        <a cd-route-href="document.show(document)">{{document.title}}</a>
+<ul class="thumbnails">
+    <li ng-repeat="document in documents | orderBy:'title'" class="span4">
+        <div class="thumbnail">
+            <a cd-route-href="document.show(document)">{{document.title}}</a>
+        </div>
     </li>
 </ul>
