@@ -1,18 +1,18 @@
-#= require services/template_paths
+#= require services/templates
 
 resolves = @CoreDoc.resolves ||= {}
 
 @CoreDoc.config [
   "$routeProvider",
   "$locationProvider",
-  "TemplatePaths",
-  ($routeProvider, $locationProvider, TemplatePaths) ->
+  "Templates",
+  ($routeProvider, $locationProvider, Templates) ->
     $locationProvider.html5Mode(true).hashPrefix('!')
 
     $routeProvider
       .when(
         '/',
-        templateUrl: TemplatePaths["documents/index.html"],
+        templateUrl: Templates["documents/index.html"],
         controller: "DocumentsCtrl",
         resolve: resolves["document.index"]
       )
@@ -22,23 +22,23 @@ resolves = @CoreDoc.resolves ||= {}
       )
       .when(
         '/documents/new',
-        templateUrl: TemplatePaths["documents/new.html"],
+        templateUrl: Templates["documents/new.html"],
         controller: "DocumentNewCtrl"
       )
       .when(
         '/documents/:parent_id/new',
-        templateUrl: TemplatePaths["documents/new.html"],
+        templateUrl: Templates["documents/new.html"],
         controller: "DocumentNewCtrl",
         resolve: resolves["document.newChild"]
       )
       .when(
         '/documents/:id',
-        templateUrl: TemplatePaths["documents/show.html"],
+        templateUrl: Templates["documents/show.html"],
         controller: "DocumentCtrl",
         resolve: resolves["document.show"]
       )
       .when('/documents/:id/edit',
-            templateUrl: TemplatePaths["documents/edit.html"],
+            templateUrl: Templates["documents/edit.html"],
             controller: "DocumentEditCtrl",
             resolve: resolves["document.edit"]
       )

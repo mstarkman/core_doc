@@ -4,10 +4,10 @@
   "$rootScope",
   "$timeout",
   "$location",
-  "TemplatePaths",
+  "Templates",
   "RouteHelpers"
-  ($rootScope, $timeout, $location, TemplatePaths, RouteHelpers) ->
-    $rootScope.templatePaths = TemplatePaths
+  ($rootScope, $timeout, $location, Templates, RouteHelpers) ->
+    $rootScope.templates = Templates
     routes = $rootScope.routes = RouteHelpers
 
     $rootScope.isLoading = false

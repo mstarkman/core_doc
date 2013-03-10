@@ -1,7 +1,7 @@
 <form ng-submit="addDocument()">
     <fieldset>
         <legend>Add New Document</legend>
-        <div ng-include="templatePaths['documents/form.html']"></div>
+        <div ng-include="templates['documents/form.html']"></div>
         <button type="submit" class="btn btn-small">Add</button>
         <a href="{{cancelPath}}" class="btn btn-small">Cancel</a>
     </fieldset>
