@@ -45,6 +45,7 @@ gem 'friendly_id', "~> 4.0.9"
 
 group :development do
   gem 'quiet_assets'
+  gem "better_errors"
 end
 
 group :development, :test do

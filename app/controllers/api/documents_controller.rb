@@ -1,4 +1,4 @@
-class DocumentsController < ApplicationController
+class Api::DocumentsController < ApplicationController
   respond_to :json
   before_filter :load_document, only: [:show, :update, :destroy]
 
@@ -14,13 +14,13 @@ class DocumentsController < ApplicationController
   def create
     document = Document.new(document_params)
     if document.save
-      respond_with document
+      render json: document
     end
   end
 
   def update
     if @document.update_attributes document_params
-      respond_with document
+      respond_with @document
     end
   end
 
