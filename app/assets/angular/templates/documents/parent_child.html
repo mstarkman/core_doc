@@ -1,18 +1,32 @@
 <div class="row">
-    <div class="span6" ng-show="document.parent">
+    <div class="span4" ng-show="document.parent">
         <h4>Parent Document</h4>
-        <ul>
-            <li>
-                <a cd-route-href="document.show(document.parent)">{{document.parent.title}}</a>
+        <ul class="thumbnails">
+            <li class="span4">
+                <a cd-route-href="document.show(document.parent)">
+                    <div class="thumbnail palette palette-night">
+                        {{document.parent.title}}
+                    </div>
+                </a>
             </li>
         </ul>
     </div>
-    <div class="span6">
+    <div class="span8">
         <h4>Child Documents</h4>
-        <a cd-route-href="document.newChild(document)" class="btn btn-small">Add Child Document</a>
-        <ul ng-show="document.children.length > 0">
-            <li ng-repeat="child in document.children | orderBy:'title'">
-                <a cd-route-href="document.show(child)">{{child.title}}</a>
+        <ul class="thumbnails">
+            <li ng-repeat="child in document.children | orderBy:'title'" class="span4">
+                <a cd-route-href="document.show(child)">
+                    <div class="thumbnail palette palette-night">
+                        {{child.title}}
+                    </div>
+                </a>
+            </li>
+            <li class="span4">
+                <a cd-route-href="document.newChild(document)">
+                    <div class="thumbnail palette palette-night">
+                        <i class="icon-plus-sign-alt"></i> Add a Child Document
+                    </div>
+                </a>
             </li>
         </ul>
     </div>
