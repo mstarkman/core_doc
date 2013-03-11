@@ -1,0 +1,17 @@
+.navbar {
+  &.navbar-inverse {
+    .navbar-inner {
+      background: #2980B9;
+    }
+  }
+
+  .nav {
+    >li {
+      >a {
+        &:hover {
+          color: #F1C40F;
+        }
+      }
+    }
+  }
+}
