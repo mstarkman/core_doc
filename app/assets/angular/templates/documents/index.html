@@ -1,14 +1,14 @@
-<ul class="thumbnails">
-    <li ng-repeat="document in documents | orderBy:'title'" class="span4">
+<ul class="document-panels">
+    <li ng-repeat="document in documents | orderBy:'title'" class="span4 document">
         <a cd-route-href="document.show(document)">
-            <div class="thumbnail palette palette-night">
+            <div>
                 {{document.title}}
             </div>
         </a>
     </li>
-    <li class="span4">
+    <li class="span4 document">
         <a cd-route-href="document.new()">
-            <div class="thumbnail palette palette-night">
+            <div>
                 <i class="icon-plus-sign-alt"></i> Add a Document
             </div>
         </a>

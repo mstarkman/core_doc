@@ -1,0 +1,19 @@
+.document-panels {
+  @extend .thumbnails;
+
+  >.document {
+    >a {
+      text-decoration: none;
+
+      >div {
+        @extend .thumbnail;
+        @extend .palette;
+        @extend .palette-info;
+
+        &:hover {
+          @extend .palette-info-dark;
+        }
+      }
+    }
+  }
+}

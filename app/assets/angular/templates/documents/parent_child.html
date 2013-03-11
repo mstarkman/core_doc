@@ -1,10 +1,10 @@
 <div class="row">
     <div class="span4" ng-show="document.parent">
         <h4>Parent Document</h4>
-        <ul class="thumbnails">
-            <li class="span4">
+        <ul class="document-panels">
+            <li class="span4 document">
                 <a cd-route-href="document.show(document.parent)">
-                    <div class="thumbnail palette palette-night">
+                    <div>
                         {{document.parent.title}}
                     </div>
                 </a>
@@ -13,17 +13,17 @@
     </div>
     <div class="span8">
         <h4>Child Documents</h4>
-        <ul class="thumbnails">
-            <li ng-repeat="child in document.children | orderBy:'title'" class="span4">
+        <ul class="document-panels">
+            <li ng-repeat="child in document.children | orderBy:'title'" class="span4 document">
                 <a cd-route-href="document.show(child)">
-                    <div class="thumbnail palette palette-night">
+                    <div>
                         {{child.title}}
                     </div>
                 </a>
             </li>
-            <li class="span4">
+            <li class="span4 document">
                 <a cd-route-href="document.newChild(document)">
-                    <div class="thumbnail palette palette-night">
+                    <div>
                         <i class="icon-plus-sign-alt"></i> Add a Child Document
                     </div>
                 </a>
